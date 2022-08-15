@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Grid,AppBar, Toolbar, Typography} from '@mui/material'
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Forgotten from './pages/Forgotten';
+import Notfound from './pages/Notfound';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <AppBar position="static" alignitems="center" color="primary">
+        <Toolbar>
+          <Grid container justify="center" wrap="wrap">
+            <Grid item>
+              <Typography variant="h6">Sample</Typography>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <Router>
+        <div>
+
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/Signup" element={<Signup />} />
+            <Route path="/Forgotten" element={<Forgotten />} />
+            <Route path="/Login" element={<Login />} />
+            <Route element={<Notfound />} />
+          </Routes>
+
+        </div>
+      </Router>
     </div>
   );
 }
